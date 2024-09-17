@@ -1,0 +1,26 @@
+<div class="container">
+<div class="top-header">
+    <h3>Mega Electronix</h3>
+    <p>Edit Task</p>
+</div>
+<hr class="line">
+
+<ul class="nav nav-tabs" id="ticketTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button  class="nav-link" [ngClass]="{'active': activeTab === 'details'}" (click)="selectTab('details')" id="details-tab" type="button"><app-icon class="space-icon" name="details"></app-icon><label for="">Details</label></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" [ngClass]="{'active': activeTab === 'activity'}" (click)="selectTab('activity')" id="activity-tab" type="button"><app-icon class="space-icon" name="activity"></app-icon>Activity</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" [ngClass]="{'active': activeTab === 'comments'}" (click)="selectTab('comments')" id="comments-tab" type="button"><app-icon class="space-icon" name="comments"></app-icon>Comments</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" [ngClass]="{'active': activeTab === 'attachments'}" (click)="selectTab('attachments')" id="attachments-tab" type="button"><app-icon class="space-icon" name="attachments"></app-icon>Attachments</button>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <app-ticket-edit-panel *ngIf="activeTab === 'details'"></app-ticket-edit-panel>
+</div>
+

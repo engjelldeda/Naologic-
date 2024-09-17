@@ -1,0 +1,45 @@
+<hr class="line">
+<div class="notification">
+
+    <p><app-icon class="icon" name="logicpilot"></app-icon>Ask Logic Pilot to generate subtasks or to summarize comments</p>
+</div>
+
+<div class="container">
+    
+    
+        <form [formGroup]="ticketForm" class="form-container mt-4">
+            <div class="form-row">
+              
+              <label><app-icon name="status" class="space-icon"></app-icon >Status</label>
+              <div class="status-badge"><span class=" unpaid">{{ ticketForm.get('status')?.value }}</span></div>
+              
+            </div>
+            <div class="form-row">
+             
+              <label> <app-icon name="assignee" class="space-icon"></app-icon>Assignee</label>
+              <input formControlName="assignee" placeholder="Enter name" />
+            </div>
+            <div class="form-row">
+            
+              <label>  <app-icon name="coowner" class="space-icon"></app-icon>Co-owner</label>
+              <input formControlName="coOwner" placeholder="Enter Co-owner" />
+            </div>
+            <div class="form-row">
+            
+              <label>  <app-icon name="importance"class="space-icon"></app-icon>Importance</label>
+              <input formControlName="importance" placeholder="Enter importance" />
+            </div>
+            <div class="form-row">
+              
+              <label><app-icon name="customername"class="space-icon"></app-icon>Customer name</label>
+              <input formControlName="customer" placeholder="Enter name" />
+            </div>
+            <div class="form-row">
+             
+              <label> <app-icon name="invoiceid"class="space-icon"></app-icon>Invoice ID</label>
+              <input formControlName="invoiceId" placeholder="Enter invoice id" />
+            </div>
+          </form>
+    
+</div>
+<app-subtask-list></app-subtask-list>

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="subtask-header">
+    <h3>Subtasks </h3>
+    <mat-progress-bar mode="determinate" [value]="getProgressValue()" class="size-progress"></mat-progress-bar>
+    <p class="count-tasks">{{ getCompletedCount() }}/{{ getSubtaskCount() }}</p>
+    
+  </div>
+  <hr class="line">
+  
+  <div class="subtask-section" [formGroup]="subtaskForm">
+    
+
+    <div formArrayName="subtasks" class="subtask-list">
+      <div class="sub-title">
+        <p>Subtask name</p>
+      </div>
+      
+      <!-- Loop through each subtask -->
+      <div class="subtask-item" *ngFor="let subtask of subtasks.controls; let i = index" [formGroupName]="i">
+        <!-- Circular Checkbox -->
+        <label class="checkbox-container">
+          <input type="checkbox" 
+                 [checked]="subtask.get('completed')?.value" 
+                 (change)="toggleCompleted(i)">
+          <span class="checkmark"></span>
+        </label>
+        <!-- Subtask Name (Editable) -->
+        <input type="text" formControlName="name" class="subtask-input" placeholder="Enter subtask name" #subtaskInput />
+
+       
+      </div>
+      <div class="taskname">
+        <button class="add-btn" (click)="addSubtask()">+ Add Subtask</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
